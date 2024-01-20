@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Profile\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,10 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::controller(AuthController::class)->group(function (){
+Route::controller(AuthController::class)->group(function () {
     Route::get('register', 'register')->name('register');
     Route::post('store', 'store')->name('store');
 
@@ -28,8 +29,11 @@ Route::controller(AuthController::class)->group(function (){
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
 
-Route::middleware('auth')->group(function (){
-    Route::get('dashboard', function (){
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard', function () {
         return view('dashboard.index');
     })->name('dashboard');
 });
+
+Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+

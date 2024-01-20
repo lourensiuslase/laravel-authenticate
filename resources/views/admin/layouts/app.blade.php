@@ -49,11 +49,14 @@
             padding-left: 5px !important;
             padding-right: 5px !important;
         }
+        .main-content{
+            background-color: white;
+        }
     </style>
     @stack('page-styles')
 </head>
 
-<body class="vertical light">
+<body class="vertical bg-light">
 <div class="wrapper">
     @include('admin.layouts.header')
     @include('admin.layouts.sidebar')
@@ -146,4 +149,6 @@
 
 @stack('page-scripts')
 @stack('after-scripts')
+
 </body>
+</html>

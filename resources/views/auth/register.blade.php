@@ -64,7 +64,7 @@
                             <div class="card-body">
                                 <form method="POST" action="{{route('store')}}">
                                     @csrf
-                                    <h1 class="h6 mb-3">LARAVEL MY PROJECT</h1>
+{{--                                    <h1 class="h6 mb-3">LARAVEL MY PROJECT</h1>--}}
                                     <a class="navbar-brand mx-auto mt-2 flex-fill text-center">
                                         <img class="navbar-brand-img brand-md"
                                              src="{{asset('admin/assets/images/laravel.png')}}" alt="">

@@ -24,7 +24,7 @@
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#"><i class="fe fe-user mr-2"></i>Profile</a>
+                <a class="dropdown-item" href="{{route('profile')}}"><i class="fe fe-user mr-2"></i>Profile</a>
                 <a class="dropdown-item" href="#"><i class="fe fe-activity mr-2"></i>Activities</a>
                 <a class="dropdown-item " style="color: black; cursor: pointer" data-toggle="modal"
                    data-target="#modal-laporkan-bug-mk"><i class="fe fe-message-square mr-2"></i>Laporkan Bug</a>
@@ -39,4 +39,3 @@
         </li>
     </ul>
 </nav>
-<?php

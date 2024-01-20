@@ -59,7 +59,7 @@
     <div class="row align-items-center h-100">
         <form method="POST" class="col-lg-3 col-md-4 col-10 mx-auto text-center" action="{{ route('login.action') }}" enctype="multipart/form-data">
             @csrf
-            <h1 class="h6 mb-3">LARAVEL MY PROJECT</h1>
+{{--            <h1 class="h6 mb-3">LARAVEL MY PROJECT</h1>--}}
             <a class="navbar-brand mx-auto mt-2 flex-fill text-center">
                 <img class="navbar-brand-img brand-md"  src="{{asset('admin/assets/images/laravel.png')}}" alt="">
             </a>
