@@ -1,0 +1,195 @@
+.table thead th {
+    color: #393939 !important;
+    font-weight: bold !important;
+    background-color: #ededed;
+}
+
+.table td {
+    padding: .4rem .5rem !important;
+}
+
+.table th {
+    font-size: 14px;
+    font-weight: bolder;
+    padding: .5rem !important;
+}
+
+.active-label {
+    color: #1b68ff !important;
+}
+
+.font-12 {
+    font-size: 12px !important;
+}
+
+.container-fluid {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.d-none {
+    display: none;
+}
+
+.detail {
+    cursor: pointer;
+}
+
+.b-none {
+    border: none;
+}
+
+.px-10 {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+.btn-sm-ct {
+    padding: 0.2rem;
+    font-size: .6rem;
+}
+
+.select2-results__option:hover {
+    background-color: #1b68ff;
+    color: white;
+}
+
+
+.w-2p {
+    width: 2%;
+}
+
+.w-3p {
+    width: 3%;
+}
+
+.w-5p {
+    width: 5%;
+}
+
+.w-8p {
+    width: 8%;
+}
+
+.w-9p {
+    width: 9%;
+}
+
+.w-10p {
+    width: 10%;
+}
+
+.w-12p {
+    width: 12%;
+}
+
+.w-13p {
+    width: 13%;
+}
+
+.w-14p {
+    width: 15%;
+}
+
+.w-15p {
+    width: 15%;
+}
+
+.w-17p {
+    width: 17%;
+}
+
+.w-20p {
+    width: 20%;
+}
+
+.w-25p {
+    width: 25%;
+}
+
+.w-30p {
+    width: 30%;
+}
+
+.w-35p {
+    width: 35%;
+}
+
+.w-40p {
+    width: 40%;
+}
+
+
+@-webkit-keyframes ALERT_BLINK {
+
+    0%,
+    49% {
+        background-color: transparent
+    }
+
+    50%,
+    100% {
+        background-color: #ffcccc;
+    }
+}
+
+
+.success-alert {
+    width: 40px;
+    height: 40px;
+    -webkit-animation: SUCCESS_BLINK 1s infinite;
+    /* Safari 4+ */
+    -moz-animation: SUCCESS_BLINK 1s infinite;
+    /* Fx 5+ */
+    -o-animation: SUCCESS_BLINK 1s infinite;
+    /* Opera 12+ */
+    animation: SUCCESS_BLINK 1s infinite;
+    /* IE 10+, Fx 29+ */
+}
+
+.f12p {
+    font-size: 12px !important;
+}
+
+@-webkit-keyframes SUCCESS_BLINK {
+
+    0%,
+    49% {
+        background-color: transparent
+    }
+
+    50%,
+    100% {
+        background-color: #bcffcf;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.shadow-important {
+    box-shadow: -8px 12px 18px 0 rgb(25 42 70 / 13%) !important
+}
+
+.collapse {
+    display: none;
+}
+
+.collapse.in {
+    display: block;
+}
+
+
+.table-data thead tr th {
+    font-size: 11px !important;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    text-transform: uppercase;
+}
+
+.table-data tbody tr td {
+    font-size: 12px !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
