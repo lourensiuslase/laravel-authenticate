@@ -1,17 +1,12 @@
 @extends('admin.layouts.app')
 @section('content')
 
-    <div class="section-body">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                <div class="card card-statistic-1">
-                    <div class="card-wrap">
-                        <div class="card-header">
-                            <h4>Total User</h4>
-                        </div>
-                        <div class="card-body">
-                            10
-                        </div>
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-header">
+                <div class="toolbar row ">
+                    <div class="col-md-8 col-sm-8 col-8">
+                        <h4>Dashboard</h4>
                     </div>
                 </div>
             </div>
