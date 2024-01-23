@@ -9,6 +9,23 @@
                      alt="">
             </a>
         </div>
+
+        @php
+            $user_data = Auth::user();
+            $role_user = $user_data->id_role;
+            // Get Access Menu
+            $access_menu = DB::table('access_menus')
+                ->where('id_role', $role_user)
+                ->get();
+
+            $arr_menu = [];
+            foreach ($access_menu as $am) {
+
+                array_push($arr_menu, $am->id_menu);
+
+            }
+
+        @endphp
         @include('admin.layouts.menu')
     </nav>
 </aside>

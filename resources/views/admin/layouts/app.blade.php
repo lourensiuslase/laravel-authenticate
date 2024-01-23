@@ -49,7 +49,8 @@
             padding-left: 5px !important;
             padding-right: 5px !important;
         }
-        .main-content{
+
+        .main-content {
             background-color: white;
         }
     </style>
@@ -126,12 +127,218 @@
       crossorigin="anonymous" referrerpolicy="no-referrer"/>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
 <script src="{{ asset('admin/js/apps.js') }}"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+
+<script>
+    jQuery.validator.setDefaults({
+        errorElement: 'span',
+        errorPlacement: function (error, element) {
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
+        },
+        highlight: function (element, errorClass, validClass) {
+            $(element).addClass('is-invalid');
+        },
+        unhighlight: function (element, errorClass, validClass) {
+            $(element).removeClass('is-invalid');
+        }
+    });
+
+    $.fn.unformatRibuan = function () {
+        var angka = this.val();
+        if (angka) {
+            var unformattedAngka = angka.replace(/,/g, '');
+            var angkaNumber = Number(unformattedAngka);
+            if (!isNaN(angkaNumber)) {
+                this.val(angkaNumber);
+            }
+        }
+        return this;
+    };
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    });
+
+    $('.select2').select2({
+        theme: 'bootstrap4',
+    });
+    $('.select2-multi').select2({
+        multiple: true,
+        theme: 'bootstrap4',
+    });
+    $('.drgpicker').daterangepicker({
+        singleDatePicker: true,
+        timePicker: false,
+        showDropdowns: true,
+        locale: {
+            format: 'MM/DD/YYYY'
+        }
+    });
+    $('.time-input').timepicker({
+        'scrollDefault': 'now',
+        'zindex': '9999' /* fix modal open */
+    });
+    /** date range picker */
+    if ($('.datetimes').length) {
+        $('.datetimes').daterangepicker({
+            timePicker: true,
+            startDate: moment().startOf('hour'),
+            endDate: moment().startOf('hour').add(32, 'hour'),
+            locale: {
+                format: 'M/DD hh:mm A'
+            }
+        });
+    }
+    var start = moment().subtract(29, 'days');
+    var end = moment();
+
+    function cb(start, end) {
+        $('#reportrange span').html(end.format('MMMM D, YYYY'));
+    }
+
+    $('#reportrange').daterangepicker({
+        startDate: start,
+        endDate: end,
+        ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
+                .endOf('month')
+            ]
+        }
+    }, cb);
+    cb(start, end);
+    $('.input-placeholder').mask("00/00/0000", {
+        placeholder: "__/__/____"
+    });
+    $('.input-zip').mask('00000-000', {
+        placeholder: "____-___"
+    });
+    $('.input-money').mask("#.##0,00", {
+        reverse: true
+    });
+    $('.input-phoneus').mask('(000) 000-0000');
+    $('.input-mixed').mask('AAA 000-S0S');
+    $('.input-ip').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
+        translation: {
+            'Z': {
+                pattern: /[0-9]/,
+                optional: true
+            }
+        },
+        placeholder: "___.___.___.___"
+    });
+    // editor
+    var editor = document.getElementById('editor');
+    if (editor) {
+        var toolbarOptions = [
+            [{
+                'font': []
+            }],
+            [{
+                'header': [1, 2, 3, 4, 5, 6, false]
+            }],
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{
+                'header': 1
+            },
+                {
+                    'header': 2
+                }
+            ],
+            [{
+                'list': 'ordered'
+            },
+                {
+                    'list': 'bullet'
+                }
+            ],
+            [{
+                'script': 'sub'
+            },
+                {
+                    'script': 'super'
+                }
+            ],
+            [{
+                'indent': '-1'
+            },
+                {
+                    'indent': '+1'
+                }
+            ], // outdent/indent
+            [{
+                'direction': 'rtl'
+            }], // text direction
+            [{
+                'color': []
+            },
+                {
+                    'background': []
+                }
+            ], // dropdown with defaults from theme
+            [{
+                'align': []
+            }],
+            ['clean'] // remove formatting button
+        ];
+        var quill = new Quill(editor, {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+        });
+    }
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('admin/js', new Date());
+    gtag('admin/config', 'UA-56159088-1');
+</script>
 
 @if(\Session::has('message'))
     @php
@@ -149,6 +356,33 @@
 
 @stack('page-scripts')
 @stack('after-scripts')
+<script>
+    function addCommas(nStr) {
+        nStr = "" + nStr;
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + '.' + '$2');
+        }
+        return x1 + x2;
+    }
+
+    function rupiah(nStr) {
+        nStr = "" + nStr;
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + '.' + '$2');
+        }
+        return "Rp"+x1 + x2;
+    }
+</script>
 
 </body>
 </html>
