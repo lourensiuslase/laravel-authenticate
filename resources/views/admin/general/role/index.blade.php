@@ -7,7 +7,7 @@
             <div class="card-header">
                 <div class="toolbar row ">
                     <div class="col-md-8 col-sm-8 col-8">
-                        <h5>Role</h5>
+                        <h5>Access Roles</h5>
                     </div>
                     <div class="col-md-4 col-sm-4 col-4">
                         {{-- <button id="btn-add-role-access" type="button" class="btn btn-sm btn-primary mr-1 float-right text-uppercase"

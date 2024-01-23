@@ -26,7 +26,7 @@
             <a class="nav-link @if (Request::segment(3) == 'role-access') active-label @endif"
                href="{{ route('role-access.index') }}">
                 <i class="bi bi-toggle-on"></i>
-                <span class="ml-3 item-text">Role Access</span>
+                <span class="ml-3 item-text">Access Roles</span>
             </a>
         </li>
     @endif

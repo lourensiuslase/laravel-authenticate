@@ -7,7 +7,7 @@
             <div class="card-header">
                 <div class="toolbar row ">
                     <div class="col-md-12 d-flex">
-                        <h2 class="h4 mb-1">Data Master Peran</h2>
+                        <h2 class="h4 mb-1">Users Roles</h2>
                         <div class="col ml-auto">
                             <div class="dropdown float-right">
                                 <button type="button" class="btn btn-primary mr-1" onclick="openModal('role','add')"><i
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <table class="table datatables table-bordered table-hover" id="table-role">
+                <table class="table datatables table-bordered table-hover table-data" id="table-role">
                     <thead>
                     <tr>
                         <th class="w-5p">No</th>
