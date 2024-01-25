@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-header">
-                <div class="toolbar row ">
+                <div class="toolbar row">
                     <div class="col-md-8 col-sm-8 col-8">
                         <h4>Provinces</h4>
                     </div>
@@ -32,7 +32,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="3" class="text-center font-weight-bold">Data tidak ditemukan</td>
+                            <td colspan="3">Data tidak ditemukan</td>
                         </tr>
                     @endforelse
                     </tbody>

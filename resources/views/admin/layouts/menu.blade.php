@@ -13,7 +13,7 @@
     </p>
     <li class="nav-item dropdown">
         <a href="#master-data" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
-            <i class="fe fe-box fe-16"></i>
+            <i class="bi bi-globe fe-16"></i>
             <span class="ml-3 item-text">Data Master</span><span class="sr-only">(current)</span>
         </a>
         <ul class="collapse list-unstyled pl-4 w-100  @if (Request::segment(2) == 'master-data') show @endif"

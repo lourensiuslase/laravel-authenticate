@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <div class="card shadow">
             <div class="card-header">
-                <div class="toolbar row ">
+                <div class="toolbar row">
                     <div class="col-md-8 col-sm-8 col-8">
                         <h4>Master Cities</h4>
                     </div>
@@ -37,9 +37,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="2" class="text-center">
-                                Tidak Terdapat Data Kota
-                            </td>
+                            <td colspan="3">Data tidak ditemukan</td>
                         </tr>
                     @endif
                     </tbody>
