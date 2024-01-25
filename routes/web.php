@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\General\RoleAccessController;
 use App\Http\Controllers\Admin\General\SettingController;
 use App\Http\Controllers\Admin\General\UserManagementController;
 use App\Http\Controllers\Admin\ManagementUser\RoleController;
+use App\Http\Controllers\Admin\MasterData\CityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,17 +54,18 @@ Route::middleware('auth')->group(function () {
     #Management User
     Route::resource('admin/management-user/role', 'App\Http\Controllers\Admin\ManagementUser\RoleController');
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+
+    Route::group(['prefix' => 'admin'], function () {
+        Route::group(['prefix' => 'master-data'], function () {
+            Route::group(['prefix' => 'cities'], function () {
+                Route::get('/', 'App\Http\Controllers\Admin\MasterData\CityController@index')->name('master-data.cities.index');
+            });
+            Route::group(['prefix' => 'provinces'], function () {
+                Route::get('/', 'App\Http\Controllers\Admin\MasterData\ProvinceController@index')->name('master-data.provinces.index');
+            });
+        });
+    });
 });
-
-
-
-
-
-
-
-
-
-
 
 
 #Download File

@@ -13,7 +13,7 @@
     <tbody>
     @foreach ($data as $key => $item)
         <tr>
-            <td class="w-5p">{{ $key + 1 }}</td>
+            <td class="w-3p">{{ $key + 1 }}</td>
             <td class="w-15p">{{ $item->username }}</td>
             <td>{{ $item->name }}</td>
             <td class="w-25p">{{ $item->email }}</td>

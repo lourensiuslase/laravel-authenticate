@@ -21,10 +21,10 @@
                 <div class="row">
                     <div class="form-group col-md-4">
                         <div class="form-group">
-                            <label class="mb-1">Role</label>
+                            <label class="mb-1">User Role</label>
                             <div class="form-group">
-                                <select name="role_name" id="role_name" class="form-control form-control-sm bg-transparent">
-                                    <option value="">--Choose Role--</option>
+                                <select name="role_name" id="role_name" class="form-control bg-transparent">
+                                    <option value="">Choose Role</option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->role_name }}">{{ $role->role_name }}</option>
                                     @endforeach
@@ -34,9 +34,9 @@
                     </div>
                     <div class="form-group col-md-4">
                         <div class="form-group">
-                            <label class="mb-1">Status</label>
+                            <label class="mb-1">User Status</label>
                             <div class="form-group">
-                                <select name="status_user" id="status_user" class="form-control form-control-sm bg-transparent">
+                                <select name="status_user" id="status_user" class="form-control bg-transparent">
                                     <option value="">ALL</option>
                                     <option value="1">Active</option>
                                     <option value="0">Not Active</option>
@@ -46,10 +46,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group" style="margin-top:25px">
-                            <button type="button" onclick="displayData()"class="btn btn-sm btn-outline-secondary mr-2"
-                                    style="min-width: 125px"><i class="fe fe-rotate-ccw fe-16"></i>Reset</button>
-                            <button type="button" onclick="searchUserManagement()" class="btn btn-sm btn-outline-primary"
-                                    style="min-width: 125px"><i class="fe fe-search fe-16"></i>Submit</button>
+                            <button type="button" onclick="displayData()"class="btn btn-secondary"><i class="fe fe-rotate-ccw fe-16"></i>Reset</button>
+                            <button type="button" onclick="searchUserManagement()" class="btn btn-primary"><i class="bi bi-filter fe-16"></i>Filter</button>
                         </div>
                     </div>
                 </div>

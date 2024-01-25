@@ -8,6 +8,30 @@
             </a>
         </li>
     @endif
+    <p class="text-muted nav-heading mt-1 mb-1">
+        <span style="color: #6c757d">Master Data</span>
+    </p>
+    <li class="nav-item dropdown">
+        <a href="#master-data" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle nav-link">
+            <i class="fe fe-box fe-16"></i>
+            <span class="ml-3 item-text">Data Master</span><span class="sr-only">(current)</span>
+        </a>
+        <ul class="collapse list-unstyled pl-4 w-100  @if (Request::segment(2) == 'master-data') show @endif"
+            id="master-data">
+            <li class="nav-item w-100">
+                <a class="nav-link @if (Request::segment(3) == 'cities') active-label @endif"
+                   href="{{route('master-data.cities.index')}}">
+                    <span class="ml-3 item-text">Cities</span>
+                </a>
+            </li>
+            <li class="nav-item w-100">
+                <a class="nav-link @if (Request::segment(3) == 'provinces') active-label @endif"
+                   href="{{route('master-data.provinces.index')}}">
+                    <span class="ml-3 item-text">Provinces</span>
+                </a>
+            </li>
+        </ul>
+    </li>
 
     <p class="text-muted nav-heading mt-1 mb-1">
         <span style="color: #6c757d">General Setting</span>

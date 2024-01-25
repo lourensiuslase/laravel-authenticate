@@ -19,7 +19,6 @@
                     </div>
                 </div>
             </div>
-            <hr class="my-0">
             <div class="card-body" id="show-data-role-access">
                 <div class="d-flex text-center ">
                     <div class="spinner-border spinner-border text-black mr-2"> <span class="sr-only">Loading...</span>
@@ -31,8 +30,8 @@
             </div>
         </div>
     </div>
-@endsection
 
+@endsection
 
 @section('modal')
     @include('admin.general.role.modal')
