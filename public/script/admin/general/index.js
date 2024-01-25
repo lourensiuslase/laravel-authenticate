@@ -368,10 +368,7 @@ function fetchData(data, response, type = null) {
             $("#id").val(response.id);
             $("#username").val(response.username);
             $("#email").val(response.email);
-            $("#role_name").val(response.role_name)
-            $("#id_role").val(
-                response.id_role
-            );
+            $("#id_role").val(response.id_role);
             break;
         case "role":
             $("#id").val(response.id);

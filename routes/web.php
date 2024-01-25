@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Profile\ProfileController;
+use App\Http\Controllers\Admin\General\ProfileController;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Admin\General\RoleAccessController;
 use App\Http\Controllers\Admin\General\SettingController;
@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
 
     #Management User
     Route::resource('admin/management-user/role', 'App\Http\Controllers\Admin\ManagementUser\RoleController');
-    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+    Route::resource('admin/general/profile', 'App\Http\Controllers\Admin\General\ProfileController');
 
     Route::group(['prefix' => 'admin'], function () {
         Route::group(['prefix' => 'master-data'], function () {
