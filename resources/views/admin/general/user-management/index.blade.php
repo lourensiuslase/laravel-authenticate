@@ -46,8 +46,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group" style="margin-top:25px">
-                            <button type="button" onclick="displayData()"class="btn btn-secondary"><i class="fe fe-rotate-ccw fe-16"></i>Reset</button>
                             <button type="button" onclick="searchUserManagement()" class="btn btn-primary"><i class="bi bi-filter fe-16"></i>Filter</button>
+                            <button type="button" onclick="displayData()"class="btn btn-secondary"><i class="fe fe-rotate-ccw fe-16"></i>Reset</button>
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,7 @@
 <div class="row align-items-center">
     <div class="col-2">
-        @if($data->photos === null)
-            <img src="https://www.w3schools.com/howto/img_avatar.png" width="100%" alt="Avatar"
-                 style="border-radius: 50%;">
-        @else
-            <img src="{{$data->photos}}" width="100%" alt="Avatar"
-                 style="border-radius: 50%;">
-        @endif
+        <img src="https://www.w3schools.com/howto/img_avatar.png" width="100%" alt="Avatar"
+             style="border-radius: 50%;">
     </div>
     <div class="col-10">
         <div class="row">

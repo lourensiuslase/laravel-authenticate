@@ -10,14 +10,13 @@
                         <h5 class="h5 text-uppercase">Setting Profile</h5>
                     </div>
                     <div class="col-md-4 col-sm-4 col-4">
-                        <button id="btn-back-setting" type="button" style="display: none"
-                                class="btn btn-sm btn-warning text-white mr-1 float-right text-uppercase"
-                                onclick="openModal('setting','back')"><i class="fe fe-arrow-left"></i> Back</button>
-
+                        <div class="float-right">
+                        <a href="{{route('dashboard')}}" class="btn btn-secondary"><i class="fe fe-arrow-left"></i> Back</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <hr class="my-0">
+
             <div class="card-body" id="show-data-setting">
                 <div class="row">
 
@@ -29,12 +28,12 @@
                                 <input type="input" class="form-control" value="{{ $data->username }}" readonly>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
-                                <span class="mb-0">Role</span>
-                                <h6>{{ $data->role_name }}</h6>
+                                <span class="mb-0">Role Users</span>
+                                <input type="input" class="form-control" value="{{ $data->role_name }}" readonly>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">
                                 <span class="mb-0">Email</span>
-                                <h6>{{ $data->email }}</h6>
+                                <input type="input" class="form-control" value="{{ $data->email }}" readonly>
                             </div>
                         </div>
                         <hr />
@@ -115,10 +114,8 @@
             const new_password = $("#new_password").val();
             const confirm_password = $("#confirm_password").val();
 
-            console.log('cek', old_password.length >= 8 && new_password.length >= 8 && confirm_password.length >= 8)
-
             if (old_password && new_password && confirm_password) {
-                if (old_password.length >= 8 && new_password.length >= 8 && confirm_password.length >= 8) {
+                if (new_password.length >= 8 && confirm_password.length >= 8) {
                     if (new_password === confirm_password) {
                         if (new_password !== old_password) {
                             $.ajax({
@@ -126,9 +123,9 @@
                                 method: "patch",
                                 data: {
                                     old_password,
-                                    new_password
+                                    new_password,
                                 },
-                                success: function(response) {
+                                success: function (response) {
                                     if (response.status == 200) {
                                         Toast.fire({
                                             icon: "success",
@@ -142,31 +139,31 @@
                                         });
                                     }
                                 },
-                                error: function(err) {
+                                error: function (err) {
                                     console.log(err);
-                                }
+                                },
                             });
                         } else {
                             Toast.fire({
                                 icon: "error",
-                                title: "New Password can't be same as a previous password",
+                                title: "New Password can't be the same as the previous password",
                             });
                         }
                     } else {
                         Toast.fire({
                             icon: "error",
-                            title: "New Password and Confirm Password doesn't match.",
+                            title: "New Password and Confirm Password don't match.",
                         });
                     }
                 } else {
-                    alert('test')
                     Toast.fire({
                         icon: "error",
-                        title: "Minimum password length is 8 character.",
+                        title: "Minimum password length is 8 characters.",
                     });
                 }
             }
         }
+
 
         function showPassword(type, id) {
             let inputPass = document.getElementById(id);

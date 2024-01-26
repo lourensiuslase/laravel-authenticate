@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class SettingController extends Controller
@@ -17,7 +18,10 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $data = Auth::user();
+        $data = DB::table('users')
+            ->select('users.*', 'roles.role_name')
+            ->join('roles', 'users.id_role', '=', 'roles.id')
+            ->first();
         return view('admin.general.setting.index', ["data" => $data]);
     }
 
@@ -74,21 +78,23 @@ class SettingController extends Controller
     public function update(Request $request, $id)
     {
         $data = User::findOrFail($id);
+
         if (Hash::check($request->old_password, $data->password)) {
-            $data['password'] = bcrypt($request->new_password);
-            $data->update($request->all());
+            #Hanya update password jika old password benar
+            $data->password = bcrypt($request->new_password);
+            $data->update($request->except(['old_password', 'new_password']));
+
             return response()->json([
                 'data' => $data,
                 'message' => 'Successfully update data',
-                'status' => $data ? 200 : 400,
+                'status' => 200,
             ]);
         } else {
             return response()->json([
                 'status' => 400,
-                'message' => "Old password is incorect."
+                'message' => 'Old password is incorrect.',
             ]);
         }
-        return;
     }
 
     /**

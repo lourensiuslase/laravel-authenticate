@@ -45,4 +45,9 @@
 
 @push('page-scripts')
     <script src="{{asset('script/admin/management-user/index.js')}}"></script>
+    <script>
+        $(document).ready(function (){
+           $("#table-role").DataTable();
+        });
+    </script>
 @endpush
